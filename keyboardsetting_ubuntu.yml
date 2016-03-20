@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  sudo: yes
+  tasks:
+    - name: keyboard setting
+      lineinfile: >
+        dest="/etc/default/keyboard"
+        regexp="{{ item.regexp }}"
+        line="{{ item.line }}"
+      with_items:
+        - { regexp: "XKBMODEL=", line: 'XKBMODEL="pc105"' }
+        - { regexp: "XKBLAYOUT=", line: 'XKBLAYOUT="jp"'}
+        - { regexp: "XKBVARIANT=", line: 'XKBVARIANT="OADG109A"'}
