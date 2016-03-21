@@ -1,0 +1,12 @@
+- name: install homebrew
+  shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null
+- name: add repositories
+  homebrew_tap: tap="{{ item }}" state=present
+  with_items: homebrew_taps
+- name: install brew cask
+  homebrew: name="caskroom/cask/brew-cask" state=latest
+- name: brew update
+  homebrew: update_homebrew=yes
+- name: install packages
+  homebrew: name="{{ item }}" state=latest
+  with_items: brew_packages

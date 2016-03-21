@@ -1,12 +1,3 @@
-- include_vars: "{{ ansible_os_family }}.yml"
-
-- name: install package with apt-get
-  apt: pkg="{{ item }}"
-  with_items: 
-    - "{{ common_package }}"
-    - "{{ package }}"
-  when: "ansible_os_family == 'Debian'"
-
 - name: clone pyenv
   git: repo={{ pyenv_repo }} dest={{ pyenv_path }}
 
@@ -15,14 +6,14 @@
 
 - name: add pyenv path
   shell: > 
-    echo 'export PYENV_ROOT="{{ pyenv_path }}"' >> /etc/profile.d/pyenv.sh;
-    echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> /etc/profile.d/pyenv.sh;
+    echo 'export PYENV_ROOT="{{ pyenv_home }}"' >> ~/.bash_profile;
+    echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile;
 
 - name: activate code for pyenv
-  shell: echo 'eval "$(pyenv init -)"' >> /etc/profile.d/pyenv.sh
+  shell: echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
 
 - name: activate code for virtualenv
-  shell: echo 'eval "$(pyenv virtualenv-init -)"' >> /etc/profile.d/pyenv.sh
+  shell: echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile
 
 - name: initialize pyenv
-  shell: bash -lc "source /etc/profile.d/pyenv.sh"
+  shell: bash -lc "source ~/.bash_profile"

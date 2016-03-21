@@ -1,0 +1,5 @@
+homebrew_taps:
+  - caskroom/cask
+  - caskroom/versions
+brew_packages:
+  - wget

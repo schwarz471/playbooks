@@ -1,11 +1,6 @@
-pyenv_path: /usr/local/pyenv
-virtualenv_path: /usr/local/pyenv/plugins/pyenv-virtualenv
-
-common_package:
-  - git
-  - gcc
-  - openssl
-  - make
+pyenv_path: ~/.pyenv
+pyenv_home: $HOME/.pyenv
+virtualenv_path: ~/.pyenv/plugins/pyenv-virtualenv
 
 pyenv_repo: https://github.com/yyuu/pyenv.git
 virtualenv_repo: https://github.com/yyuu/pyenv-virtualenv.git

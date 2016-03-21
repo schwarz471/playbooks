@@ -1,2 +1,2 @@
 - name: install spyder python IDE
-  apt: pkg=spyder
+  homebrew: name=spyder state=latest

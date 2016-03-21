@@ -1,0 +1,2 @@
+- name: install java7
+  homebrew_cask: name="java7" state=present

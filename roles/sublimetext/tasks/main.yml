@@ -1,0 +1,4 @@
+- name: install sublime text 3
+  homebrew_cask: name="sublime-text3" state=present
+- name: install package control
+  git: repo=https://github.com/wbond/package_control.git dest="~/Library/Application Support/Sublime Text 3/Packages/Package Control"

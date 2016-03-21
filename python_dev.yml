@@ -1,8 +1,9 @@
 ---
-- hosts: localhost
+- hosts: mac_provision_dev
   sudo: yes
   connection: local
   roles:
+    - initial
     - common
     - python
     - python-dev

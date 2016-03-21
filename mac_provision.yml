@@ -1,0 +1,27 @@
+---
+- hosts: mac_provision_dev
+  roles:
+    - initial
+    - common
+    - sublimetext
+    - python
+    - python-dev
+
+- hosts: mac_provision_dev_rev2
+  roles:
+    - initial_rev2
+    - android-studio
+
+- hosts: full_install
+  roles:
+    - initial
+    - initial_rev2
+    - common
+    - sublimetext
+    - python
+    - android-studio
+
+- hosts: localhost
+  connection: local
+  roles:
+    - android-studio

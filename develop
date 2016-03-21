@@ -1,5 +1,16 @@
 [localhost]
 127.0.0.1
 
+[mac_provision_dev_rev2]
+#192.168.33.10
+
+[mac_provision_dev]
+
+[full_install]
+
+[mac_provision_dev:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_password=vagrant
+ansible_ssh_port=2222
+
 [python_dev:children]
-localhost
