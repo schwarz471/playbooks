@@ -1,0 +1,44 @@
+- name: download zip file in tex-live
+  sudo: no
+  shell: >
+    wget {{ texlive_url }}
+
+- name: unzip tex-live
+  sudo: no
+  shell: >
+    tar -xvf {{ tex_zip }}
+
+- name: create profile file
+  sudo: no
+  copy: >
+    src=small.profile
+    dest=~/small.profile
+
+- name: install texlive
+  shell: >
+    ./install-tl-*/install-tl -profile ./small.profile
+
+- name: echo PATH
+  shell: echo $PATH
+  register: var_path
+
+- name: add path tmlgr
+  shell: >
+    echo 'export PATH=$PATH:"{{ tlmgr_path }}"' >> /etc/profile.d/texlive_env.sh
+
+- name: exec add path
+  sudo: no
+  shell: >
+    bash -lc "source /etc/profile.d/texlive_env.sh"
+
+- name: chmod texlive directory
+  file: >
+    path={{ install_path }}
+    recurse=yes
+    group={{ group }}
+    owner={{ owner }}
+
+- name: install LuaLaTex
+  sudo: no
+  shell: >
+    bash -lc "tlmgr install luatex"

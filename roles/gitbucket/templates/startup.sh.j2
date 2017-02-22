@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PORT={{ port }}
+APPHOME={{ apphome }}
+APPFILE=$APPHOME/gitbucket.war
+LOGFILE={{ logdir }}/gitbucket.log
+
+cd $APPHOME
+java -jar $APPFILE --port=$PORT --prefix=/gitbucket --gitbucket.home=$APPHOME >> $LOGFILE 2>&1 &

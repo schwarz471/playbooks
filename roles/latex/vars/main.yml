@@ -1,0 +1,7 @@
+texlive_url: http://www.ring.gr.jp/pub/text/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz
+tex_zip: install-tl-unx.tar.gz
+tlmgr_path: /usr/local/texlive/2017/bin/x86_64-linux
+
+install_path: /usr/local/texlive
+group: vagrant
+owner: vagrant

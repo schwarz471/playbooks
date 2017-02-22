@@ -1,0 +1,6 @@
+- name: install rpm for pandoc
+  shell: >
+    rpm -ivh "{{ pandoc_rpm_url }}"
+
+- name: install pandoc
+  yum: name=pandoc state=installed

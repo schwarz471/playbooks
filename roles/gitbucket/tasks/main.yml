@@ -1,0 +1,19 @@
+- name: mkdir for gitbucket.war
+  sudo: no
+  shell: mkdir -p {{ war_dir }}
+
+- name: mkdir for app home
+  shell: mkdir -p {{ apphome }}
+
+- name: mkdir for logfile
+  shell: mkdir -p {{ logdir }}
+
+- name: download war file
+  sudo: no
+  shell: wget -O {{ war_dir }}/gitbucket-{{ version }}.war {{ url_war }}
+
+- name: create sym link
+  shell: ln -sf {{ war_dir }}/gitbucket-{{ version }}.war {{ apphome }}/gitbucket.war
+
+- name: create startup shell
+  template: src=startup.sh.j2 dest={{ apphome }}/startup.sh mode=0644

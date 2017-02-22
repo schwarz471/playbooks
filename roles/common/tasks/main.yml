@@ -1,2 +1,5 @@
-- name: apt-get update
-  apt: update_cache=yes
+- name: yum update
+  yum: name=*
+
+- name: install libselinux-python
+  yum: name=libselinux-python state=latest

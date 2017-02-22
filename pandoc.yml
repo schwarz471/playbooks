@@ -1,0 +1,7 @@
+---
+- hosts: centos6_vm
+  sudo: yes
+  roles:
+    - common
+    - pandoc
+    - latex

@@ -1,0 +1,8 @@
+---
+- hosts: centos6_vm
+  sudo: yes
+  roles:
+    - common
+    - git
+    - java
+    - gitbucket
