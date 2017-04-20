@@ -1,11 +1,10 @@
 - include_vars: "{{ ansible_os_family }}.yml"
 
 - name: install package with apt-get
-  apt: pkg="{{ item }}"
+  yum: name="{{ item }}" state=latest
   with_items: 
     - "{{ common_package }}"
     - "{{ package }}"
-  when: "ansible_os_family == 'Debian'"
 
 - name: clone pyenv
   git: repo={{ pyenv_repo }} dest={{ pyenv_path }}

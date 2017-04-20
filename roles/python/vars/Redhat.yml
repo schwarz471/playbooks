@@ -1,0 +1,9 @@
+package:
+  - openssl-devel
+  - bzip2-devel
+  - zlib-devel
+  - readline-devel
+  - sqlite-devel
+  - bzip2
+  - sqlite
+  - sqlite-devel
