@@ -1,6 +1,7 @@
 ---
-- hosts: centos6_vm
-  sudo: yes
+- hosts: centos7
+  become: yes
+  become_method: su
   roles:
     - common
     - git

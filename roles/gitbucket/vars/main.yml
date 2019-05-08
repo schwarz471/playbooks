@@ -1,6 +1,7 @@
-version: 4.9
+version: 4.31.2
 war_dir: /home/vagrant/gitbucket
-url_war: https://github.com/gitbucket/gitbucket/releases/download/4.9/gitbucket.war
+url_war: https://github.com/gitbucket/gitbucket/releases/download/4.31.2/gitbucket.war
+csum: 31614cdecd23948fa420d992999d279bd696897ca24387c07d7a0dfa1540ef5f
 
 port: 8080
 apphome: /var/lib/git/gitbucket
